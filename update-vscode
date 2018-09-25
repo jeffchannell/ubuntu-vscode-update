@@ -29,7 +29,7 @@ fi
 debfile=`mktemp -d 2>/dev/null || mktemp -d -t 'mytmpdir'`"/${debfilename}"
 
 # Download the latest stable version of VS Code and store it in a temporary location
-wget "${remoteurl}" -O "${debfile}"
+curl -s "${remoteurl}" > "${debfile}"
 
 # confirm debfile is, in fact, a debfile
 debfileisok="$(file "${debfile}" | grep 'Debian binary package')"
